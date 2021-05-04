@@ -13,12 +13,14 @@ public class Testing : MonoBehaviour
     [SerializeField] private CustomTile wallTile;
     [SerializeField] private CustomTile mudTile;
     [SerializeField] private CustomTile trapTile;
+    List<CustomTile> path;
 
 
     private void Start()
     {
        grid = new Grid(8, 4, 10f, new Vector3(0, 0), defaultTile);
-       pathfinding = new 
+        pathfinding = new Pathfinding(grid);
+        path = pathfinding.FindPath(0, 0, 5, 2);
       
     }
 
