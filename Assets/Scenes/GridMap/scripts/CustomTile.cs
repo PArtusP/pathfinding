@@ -23,7 +23,7 @@ public class CustomTile : MonoBehaviour
     protected TileType type = TileType.Free;
     protected int x;
     protected int y;
-    protected bool walkable = true;
+    public bool walkable = true;
     protected int speedModifier = 1;
     protected bool gameEnder = false;
     public CustomTile cameFromTile;
@@ -38,7 +38,14 @@ public class CustomTile : MonoBehaviour
         return color;
     }
 
-    
+    public TileType GetTileType()
+    {
+        return type;
+    }
+
+
+
+
     public void SetPosX(int x)
     {
         this.x = x;

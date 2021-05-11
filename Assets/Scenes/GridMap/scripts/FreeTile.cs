@@ -7,8 +7,8 @@ public class FreeTile : CustomTile
     private void Awake()
     {
         type = TileType.Free;
-        color = Color.white;
-        sprite = Resources.Load<Sprite>("Sprites/bob");
+        color = Color.yellow;
+        sprite = Resources.Load<Sprite>("Sprites/square.png");
 
     }
     

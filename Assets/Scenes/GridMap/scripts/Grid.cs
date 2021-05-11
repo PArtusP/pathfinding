@@ -32,7 +32,7 @@ public class Grid
         this.defaultTile = defaultTile;
 
         map = GameObject.Find("Map");
-        tile = Resources.Load<Sprite>("Sprites/bob"); //chargement du spite(assets/ressource/sprites/normal.png
+        tile = Resources.Load<Sprite>("Sprites/square"); //chargement du spite(assets/ressource/sprites/square.png
 
         gridArray = new CustomTile[width, height];
         //debugTextArray = new TextMesh[width, height];
@@ -43,7 +43,7 @@ public class Grid
         {
             for (int y = 0; y < gridArray.GetLength(1); y++)
             {
-                spriteArray[x, y] = CreateTile(map.transform, "maze", GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * .5f, Color.yellow, 1f);
+                spriteArray[x, y] = CreateTile(map.transform, "map", GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * .5f, Color.yellow, 1f);
                 SetValue(x, y, defaultTile);
 
                 //debugTextArray[x, y] = UtilsClass.CreateWorldText(gridArray[x, y].ToString(), null, (GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * 0.5f), 20, Color.white, TextAnchor.MiddleCenter);
@@ -77,7 +77,7 @@ public class Grid
             gridArray[x, y].SetPosX(x);
             gridArray[x, y].SetPosY(y);
             spriteArray[x, y].color = tile.GetColor();
-            Debug.Log("MazeGrid, SetValue(x:y) : Color = " + tile.GetColor());
+            Debug.Log("Grid, SetValue(x:y) : Color = " + tile.GetColor());
 
         }
 
@@ -114,7 +114,7 @@ public class Grid
     public SpriteRenderer CreateTile(Transform parent, string name, Vector3 localPosition, Color color, float size)
     {
         Debug.Log("grid: Color = " + color);
-        GameObject gameObject = new GameObject(name + "_tile_" + tileNb, typeof(SpriteRenderer));
+        GameObject gameObject = new GameObject(name + "tile" + tileNb, typeof(SpriteRenderer));
         tileNb++;
         Transform transform = gameObject.transform;
         transform.SetParent(parent, false);
@@ -164,5 +164,45 @@ public class Grid
     {
         this.height = height;
     }
+
     
+
+    public int[] GetStart()
+    {
+        int[] startPos = { 0, 0 };
+
+        for (int x = 0; x < width; x++)
+        {
+
+            for (int y = 0; y < height; y++)
+            {
+                if (gridArray[x, y].GetTileType() == CustomTile.TileType.Start)
+                {
+                    startPos[0] = x;
+                    startPos[1] = y;
+                    return startPos;
+                }
+            }
+        }
+        return startPos;
+    }
+    public int[] GetEnd()
+    {
+        int[] endPos = { 1, 1 };
+
+        for (int x = 0; x < width; x++)
+        {
+
+            for (int y = 0; y < height; y++)
+            {
+                if (gridArray[x, y].GetTileType() == CustomTile.TileType.End)
+                {
+                    endPos[0] = x;
+                    endPos[1] = y;
+                    return endPos;
+                }
+            }
+        }
+        return endPos;
+    }
 }

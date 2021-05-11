@@ -10,7 +10,7 @@ public class WallTile : CustomTile
         type = TileType.Wall;
         walkable = false;
         color = Color.red;
-        sprite = Resources.Load<Sprite>("Sprites/bob");
+        
     }
 
     

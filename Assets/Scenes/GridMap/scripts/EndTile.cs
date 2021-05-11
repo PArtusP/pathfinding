@@ -2,17 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EndTile : MonoBehaviour
+public class EndTile : CustomTile
 {
     // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
-    }
+        type = TileType.End;
+        color = new Color(0.8f, 0.8f, 0.8f, 1f);
 
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

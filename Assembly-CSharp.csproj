@@ -75,15 +75,15 @@
     <Compile Include="Assets\Scenes\GridMap\scripts\Grid.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\UI_Bar.cs" />
     <Compile Include="Assets\Scenes\GridMap\scripts\Testing.cs" />
+    <Compile Include="Assets\Scenes\GridMap\scripts\Pathfinding.cs" />
     <Compile Include="Assets\CodeMonkey\MonoBehaviours\ComponentActions.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\UI_Sprite.cs" />
+    <Compile Include="Assets\Scenes\GridMap\scripts\PathTile.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\UI_BarMultiple.cs" />
     <Compile Include="Assets\Scenes\GridMap\scripts\FreeTile.cs" />
     <Compile Include="Assets\Scenes\GridMap\scripts\WallTile.cs" />
     <Compile Include="Assets\CodeMonkey\CMDebug.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\FunctionPeriodic.cs" />
-    <Compile Include="Assets\Scenes\GridMap\scripts\Path.cs" />
-    <Compile Include="Assets\Scenes\GridMap\scripts\Pathfinding.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\CodeMonkey\README.txt" />

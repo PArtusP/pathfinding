@@ -9,7 +9,6 @@ public class MudTile : CustomTile
     {
         type = TileType.Mud;
         color = new Color(0.8f, 0.25f, 0.25f, 1.0f);
-        sprite = Resources.Load<Sprite>("Sprites/bob");
         speedModifier = 2;
 
     }

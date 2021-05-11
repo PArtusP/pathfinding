@@ -13,6 +13,9 @@ public class Testing : MonoBehaviour
     [SerializeField] private CustomTile wallTile;
     [SerializeField] private CustomTile mudTile;
     [SerializeField] private CustomTile trapTile;
+    [SerializeField] private CustomTile pathTile;
+    [SerializeField] private CustomTile endTile;
+    [SerializeField] private CustomTile startTile;
     List<CustomTile> path;
 
 
@@ -20,7 +23,7 @@ public class Testing : MonoBehaviour
     {
        grid = new Grid(8, 4, 10f, new Vector3(0, 0), defaultTile);
         pathfinding = new Pathfinding(grid);
-        path = pathfinding.FindPath(0, 0, 5, 2);
+        
       
     }
 
@@ -44,11 +47,38 @@ public class Testing : MonoBehaviour
             grid.SetValue(UtilsClass.GetMouseWorldPosition(), trapTile);
         }
 
+        if (Input.GetKeyDown("a")) /// set start A
+        {
+            Debug.Log("tile trap added" + grid);
+            grid.SetValue(UtilsClass.GetMouseWorldPosition(), startTile);
+        }
+        if (Input.GetKeyDown("z")) /// set end Z
+        {
+            Debug.Log("tile trap added" + grid);
+            grid.SetValue(UtilsClass.GetMouseWorldPosition(), endTile);
+        }
+
         if (Input.GetMouseButtonDown(0))
         {
-            Vector3 mouseWorldPosition = UtilsClass.GetMouseWorldPosition();
-            grid.GetValue(mouseWorldPosition);
-            List<CustomTile> path = pathfinding.FindPath(StartTile.GetPosX(), Star 0, )
+            //Vector3 mouseWorldPosition = UtilsClass.GetMouseWorldPosition();
+            //grid.GetValue(mouseWorldPosition);
+            int[] start = grid.GetStart();
+            int[] end = grid.GetEnd();
+            List<CustomTile> path = pathfinding.FindPath(start[0], start[1], end[0], end[1]);
+            Debug.Log("list path" + path);
+            if (path!= null)
+            {
+                for(int i = 0; i<=path.Count -1; i++)
+                {
+                    Debug.Log(path[i]);
+                    
+                    grid.SetValue( new Vector3((path[i].GetPosX())*10f, (path[i].GetPosY())*10f), pathTile);
+                    
+                    
+
+                    //Debug.DrawLine(new Vector3(path[i].GetPosX(), path[i].GetPosY()) * 10f + Vector3.one * 5f, new Vector3(path[i + 1].GetPosX(), path[i + 1].GetPosY()) * 10f + Vector3.one * 5f, Color.green);
+                }
+            }
         }
         /*
         if (Input.GetKeyDown("r"))

@@ -19,12 +19,12 @@ public class Pathfinding
     
 
 
-    private List<CustomTile> FindPath(int startX, int StartY, int endX, int endY) {
+    public List<CustomTile> FindPath(int startX, int StartY, int endX, int endY) {
 
         CustomTile startNode = grid.GetValue(startX, StartY);
         CustomTile endNode = grid.GetValue(endX, endY);
         Debug.Log("in pathfinding.cs at FindPath fct startNode :" + startNode);
-        Debug.Log("in pathfinding.cs at FindPath fct endNode :" + startNode);
+        Debug.Log("in pathfinding.cs at FindPath fct endNode :" + endNode);
 
         openList = new List<CustomTile> { startNode };
         closedList = new List<CustomTile>();
@@ -57,6 +57,13 @@ public class Pathfinding
             foreach (CustomTile neighbourTile in GetNeighbourList(currentTile))
             {
                 if (closedList.Contains(neighbourTile)) continue;
+                if (!neighbourTile.walkable)
+                {
+                    closedList.Add(neighbourTile);
+                    continue;
+               
+
+                }
 
                 int tentativeGCost = currentTile.gCost + CalculateDistanceCost(currentTile, neighbourTile);
                 if (tentativeGCost < neighbourTile.gCost)
@@ -100,8 +107,8 @@ public class Pathfinding
             if (currentTile.GetPosY() + 1>=0)//UpRight
             { neighbourList.Add(GetTile(currentTile.GetPosX() + 1, currentTile.GetPosY() + 1)); }
         }
-        if (currentTile.GetPosY()-1 >=0)//Down
-        { neighbourList.Add(GetTile(currentTile.GetPosX(), currentTile.GetPosY() + 1)); }
+        if (currentTile.GetPosY() -1 >=0)//Down
+        { neighbourList.Add(GetTile(currentTile.GetPosX(), currentTile.GetPosY() - 1)); }
         if (currentTile.GetPosY() +1 >=0)//Up
         { neighbourList.Add(GetTile(currentTile.GetPosX(), currentTile.GetPosY() + 1)); }
 
