@@ -65,6 +65,11 @@ public class CustomTile : MonoBehaviour
         return y;
     }
 
+    public bool GetGameEnder()
+    {
+        return gameEnder;
+    }
+
     public int gCost;
     public int hCost;
     public int fCost;
@@ -87,5 +92,10 @@ public class CustomTile : MonoBehaviour
     {
         Debug.Log("this tile SetGCost : gCost = " + gCost);
         this.gCost = gCost;
+    }
+
+    public int GetSpeedModifier()
+    {
+        return speedModifier;
     }
 }

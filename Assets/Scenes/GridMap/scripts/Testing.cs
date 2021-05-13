@@ -21,7 +21,7 @@ public class Testing : MonoBehaviour
 
     private void Start()
     {
-       grid = new Grid(8, 4, 10f, new Vector3(0, 0), defaultTile);
+       grid = new Grid(10, 5, 10f, new Vector3(0, 0), defaultTile);
         pathfinding = new Pathfinding(grid);
         
       
@@ -29,6 +29,12 @@ public class Testing : MonoBehaviour
 
     private void Update()
     {
+        if (Input.GetMouseButtonDown(0)) /// left click= set mur
+        {
+            Debug.Log("grid added freeTile" + grid);
+            grid.SetValue(UtilsClass.GetMouseWorldPosition(), defaultTile);
+        }
+
         if (Input.GetKeyDown("1")) /// 1 = set mur
         {
             Debug.Log("grid added wall" + grid );
@@ -58,7 +64,7 @@ public class Testing : MonoBehaviour
             grid.SetValue(UtilsClass.GetMouseWorldPosition(), endTile);
         }
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetKeyDown("space"))
         {
             //Vector3 mouseWorldPosition = UtilsClass.GetMouseWorldPosition();
             //grid.GetValue(mouseWorldPosition);

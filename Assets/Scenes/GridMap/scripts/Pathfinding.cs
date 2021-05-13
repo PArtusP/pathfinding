@@ -53,6 +53,7 @@ public class Pathfinding
             }
             openList.Remove(currentTile);
             closedList.Add(currentTile);
+            
 
             foreach (CustomTile neighbourTile in GetNeighbourList(currentTile))
             {
@@ -65,7 +66,9 @@ public class Pathfinding
 
                 }
 
-                int tentativeGCost = currentTile.gCost + CalculateDistanceCost(currentTile, neighbourTile);
+               
+
+                int tentativeGCost = currentTile.gCost + CalculateDistanceCost(currentTile, neighbourTile)*neighbourTile.GetSpeedModifier();
                 if (tentativeGCost < neighbourTile.gCost)
                 {
                     neighbourTile.cameFromTile = currentTile;
@@ -76,11 +79,22 @@ public class Pathfinding
                     if (!openList.Contains(neighbourTile))
                     {
                         openList.Add(neighbourTile);
-                    }
-                 
-                }
+                        
 
+                    }
+                    //if (neighbourTile.GetGameEnder()) break;
+
+
+                }
+           
+                
+
+               // if (currentTile.GetGameEnder()) return openList;
+                     
             }
+            //if (currentTile.GetGameEnder()) break;
+
+            
         }
         return null;
         

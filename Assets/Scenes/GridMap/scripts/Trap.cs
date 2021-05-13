@@ -9,6 +9,7 @@ public class Trap : CustomTile
         type = TileType.Trap;
         color = new Color(0f, 0f, 0f, 1f);
         sprite = Resources.Load<Sprite>("Sprites/bob");
+        gameEnder = true;
 
 
     }
