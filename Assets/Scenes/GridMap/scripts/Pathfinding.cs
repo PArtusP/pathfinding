@@ -82,14 +82,14 @@ public class Pathfinding
                         
 
                     }
-                    //if (neighbourTile.GetGameEnder()) break;
+                    if (neighbourTile.GetGameEnder()) return openList;
 
 
                 }
            
                 
 
-               // if (currentTile.GetGameEnder()) return openList;
+               //if (currentTile.GetGameEnder()) return openList;
                      
             }
             //if (currentTile.GetGameEnder()) break;

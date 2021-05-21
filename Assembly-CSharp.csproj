@@ -57,6 +57,7 @@
     <Compile Include="Assets\Scenes\GridMap\scripts\CustomTile.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\World_Mesh.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\UI_TextComplex.cs" />
+    <Compile Include="Assets\Scenes\GridMap\scripts\CamControl.cs" />
     <Compile Include="Assets\Scenes\GridMap\scripts\EndTile.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\Button_Sprite.cs" />
     <Compile Include="Assets\Scenes\GridMap\scripts\Trap.cs" />
@@ -68,6 +69,7 @@
     <Compile Include="Assets\CodeMonkey\Utils\UtilsClass.cs" />
     <Compile Include="Assets\Scenes\GridMap\scripts\ColorGrid.cs" />
     <Compile Include="Assets\CodeMonkey\MonoBehaviours\PositionRendererSorter.cs" />
+    <Compile Include="Assets\Scenes\GridMap\scripts\ShowText.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\FunctionUpdater.cs" />
     <Compile Include="Assets\Scenes\GridMap\scripts\StartTile.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\FunctionTimer.cs" />
@@ -84,8 +86,7 @@
     <Compile Include="Assets\Scenes\GridMap\scripts\WallTile.cs" />
     <Compile Include="Assets\CodeMonkey\CMDebug.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\FunctionPeriodic.cs" />
-    <Compile Include="Assets\Scenes\GridMap\scripts\CamControl.cs" />
-    <Compile Include="Assets\Scenes\GridMap\scripts\ShowText.cs" />
+    <Compile Include="Assets\Scenes\GridMap\scripts\SaveSystem.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\CodeMonkey\README.txt" />
