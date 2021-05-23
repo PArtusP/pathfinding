@@ -35,7 +35,6 @@ public class Grid
         tile = Resources.Load<Sprite>("Sprites/square"); //chargement du spite(assets/ressource/sprites/square.png
 
         gridArray = new CustomTile[width, height];
-        //debugTextArray = new TextMesh[width, height];
         
         spriteArray = new SpriteRenderer[width, height];
 
@@ -109,7 +108,7 @@ public class Grid
         GetXY(worldPosition, out x, out y);
         return GetValue(x, y);
     }
-    //benshitstart
+   
     
     public SpriteRenderer CreateTile(Transform parent, string name, Vector3 localPosition, Color color, float size)
     {
@@ -147,7 +146,7 @@ public class Grid
         GetXY(worldPosition, out x, out y);
         SetValue(x, y, tile);
     }*/
-    //benshitend
+    
     public int GetWidth()
     {
         return width;

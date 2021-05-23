@@ -26,6 +26,8 @@ public class Pathfinding
         Debug.Log("in pathfinding.cs at FindPath fct startNode :" + startNode);
         Debug.Log("in pathfinding.cs at FindPath fct endNode :" + endNode);
 
+       
+
         openList = new List<CustomTile> { startNode };
         closedList = new List<CustomTile>();
 
@@ -47,7 +49,9 @@ public class Pathfinding
         while (openList.Count > 0)
         {
             CustomTile currentTile = GetLowestFCostTile(openList);
-            if(currentTile == endNode)
+
+            
+            if (currentTile == endNode)
             {
                 return CalculatePath(endNode);
             }
@@ -57,6 +61,7 @@ public class Pathfinding
 
             foreach (CustomTile neighbourTile in GetNeighbourList(currentTile))
             {
+                bool IaKiller = false;
                 if (closedList.Contains(neighbourTile)) continue;
                 if (!neighbourTile.walkable)
                 {
@@ -66,11 +71,15 @@ public class Pathfinding
 
                 }
 
-               
+                
 
                 int tentativeGCost = currentTile.gCost + CalculateDistanceCost(currentTile, neighbourTile)*neighbourTile.GetSpeedModifier();
-                if (tentativeGCost < neighbourTile.gCost)
-                {
+                if (currentTile.GetGameEnder()) {
+                    IaKiller = true;
+                    Debug.Log("IaKiller:" +IaKiller+"Ia died on trap at" + currentTile.GetPosX() + ":" + currentTile.GetPosY()) ;
+                    }
+                    if (tentativeGCost < neighbourTile.gCost)
+                    {
                     neighbourTile.cameFromTile = currentTile;
                     neighbourTile.gCost = tentativeGCost;
                     neighbourTile.hCost = CalculateDistanceCost(neighbourTile, endNode);
@@ -82,7 +91,7 @@ public class Pathfinding
                         
 
                     }
-                    if (neighbourTile.GetGameEnder()) return openList;
+                    //if (neighbourTile.GetGameEnder()) return openList;
 
 
                 }
@@ -138,8 +147,11 @@ public class Pathfinding
         List<CustomTile> path = new List<CustomTile>();
         path.Add(endNode);
         CustomTile currentTile = endNode;
+        
         while (currentTile.cameFromTile != null)
         {
+            //if (currentTile.GetGameEnder())return path;
+            
             path.Add(currentTile.cameFromTile);
             currentTile = currentTile.cameFromTile;
         }

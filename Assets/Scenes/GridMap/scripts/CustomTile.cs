@@ -18,21 +18,19 @@ public class CustomTile : MonoBehaviour
 
     protected Sprite sprite;
     protected Color color = new Color();
-
+   
     
     protected TileType type = TileType.Free;
     protected int x;
     protected int y;
+    private CustomTile customTile;
     public bool walkable = true;
     protected int speedModifier = 1;
     protected bool gameEnder = false;
     public CustomTile cameFromTile;
 
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
     public Color GetColor()
     {
         return color;
@@ -75,6 +73,7 @@ public class CustomTile : MonoBehaviour
     public int fCost;
 
     public CustomTile previousStep;
+    
 
     public override string ToString()
     {
@@ -98,4 +97,33 @@ public class CustomTile : MonoBehaviour
     {
         return speedModifier;
     }
+
+    /*public void Save()
+    {
+        for (int x=0; x < grid.GetWidth(); x++)
+        {
+            for (int y=0; y< grid.GetHeight(); y++)
+            {
+                CustomTile customTileObject = grid.GetGridObject(x, y);
+                customTileObject.Save();
+            }
+        }
+    }
+
+    public class SaveObject
+    {
+        public CustomTile customTile;
+        public int x;
+        public int y;
+    }
+
+    public SaveObject Save()
+    {
+        return new SaveObject
+        {
+            customTile = customTile,
+            x = x,
+            y = y,
+        };
+    }*/
 }

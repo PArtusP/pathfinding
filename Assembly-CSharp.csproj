@@ -9,7 +9,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8D1304BE-8F4B-6714-1E52-CCBEFA1DD880}</ProjectGuid>
+    <ProjectGuid>{16B8E0EC-822D-65E0-4F83-2462FB85A129}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scenes\GridMap\scripts\ColorGrid.cs" />
     <Compile Include="Assets\CodeMonkey\MonoBehaviours\PositionRendererSorter.cs" />
     <Compile Include="Assets\Scenes\GridMap\scripts\ShowText.cs" />
+    <Compile Include="Assets\Scenes\GridMap\scripts\SaveSystem.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\FunctionUpdater.cs" />
     <Compile Include="Assets\Scenes\GridMap\scripts\StartTile.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\FunctionTimer.cs" />
@@ -86,7 +87,7 @@
     <Compile Include="Assets\Scenes\GridMap\scripts\WallTile.cs" />
     <Compile Include="Assets\CodeMonkey\CMDebug.cs" />
     <Compile Include="Assets\CodeMonkey\Utils\FunctionPeriodic.cs" />
-    <Compile Include="Assets\Scenes\GridMap\scripts\SaveSystem.cs" />
+    <Compile Include="Assets\Scenes\GridMap\scripts\TileMap.cs" />
   </ItemGroup>
   <ItemGroup>
      <None Include="Assets\CodeMonkey\README.txt" />

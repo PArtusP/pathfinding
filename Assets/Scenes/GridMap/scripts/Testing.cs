@@ -21,7 +21,7 @@ public class Testing : MonoBehaviour
 
     private void Start()
     {
-       grid = new Grid(10, 5, 10f, new Vector3(0, 0), defaultTile);
+       grid = new Grid(20, 10, 10f, new Vector3(0, 0), defaultTile);
         pathfinding = new Pathfinding(grid);
         
       
